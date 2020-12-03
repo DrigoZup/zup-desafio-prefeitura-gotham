@@ -65,6 +65,8 @@ public class SecretariaService implements InterfaceSecretariaService {
 			}
 			return new MensagemDTO(IMPOSSIVEL_DELETAR_SECRETARIA);
 		}
+		// TODO: Tente exercitar refatorar esse método pra 
+		// usar fail first em tudo.
 		return new MensagemDTO(SECRETARIA_INEXISTENTE);
 	}
 

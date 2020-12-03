@@ -21,6 +21,8 @@ import br.com.zup.prefeitura.service.InterfaceSecretariaService;
 
 @RestController
 @RequestMapping("/secretaria")
+//FIXME: É uma boa prática mapear os recursos no plural. Visto que através 
+// daquela url estamos acessando ou trabalhando com secretarias e não uma só.
 public class SecretariaController {
 	
 	@Autowired

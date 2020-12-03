@@ -20,6 +20,7 @@ import br.com.zup.prefeitura.service.FuncionarioService;
 
 @RestController
 @RequestMapping("/funcionario")
+//FIXME: Mesmo ponto do plural.
 public class FuncionarioController {
 
 	@Autowired

@@ -21,6 +21,7 @@ import br.com.zup.prefeitura.service.ProjetoService;
 
 @RestController
 @RequestMapping("/projeto")
+//FIXME: Mesmo ponto do plural.
 public class ProjetoController {
 
 	@Autowired
@@ -41,11 +42,20 @@ public class ProjetoController {
 		return this.projetoService.listaProjetos();
 	}
 	
+	//TODO: Você foi o único que usou patch nos desafios, achei legal.
+	// Dá uma lida aqui depois https://en.wikipedia.org/wiki/Patch_verb#PUT_vs_PATCH_vs_POST
+	// pra ter mais bagagem sobre o uso desses verbos. (Esse comentário é um elogio
+	// eu só coloquei o link pra vc se aprofundar mesmo).
 	@PatchMapping(path = "/{idProjeto}", produces = {MediaType.APPLICATION_JSON_VALUE}) 
 	public MensagemDTO atualizaProjeto(@PathVariable Long idProjeto, @RequestBody String descricao) {
 		return this.projetoService.atualizaProjeto(idProjeto, descricao);
 	}
 	
+	// TODO: Eu entendi o raciocínio, eu utilizaria aqui talvez um 
+	// verbo na url pra indicar que esse endpoint está fazendo uma ação
+	// tipo /{idProjeto}/concluir ou conclusao. Lembrando que o REST
+	// é perfeito pra operações de CRUD, mas quando não é a gente tem 
+	// dessas complicações mesmo.
 	@PutMapping(path = "/{idProjeto}", produces = {MediaType.APPLICATION_JSON_VALUE})
 	public MensagemDTO finalizaProjeto(@PathVariable Long idProjeto, @RequestBody LocalDate dataEntrega) {
 		return this.projetoService.finalizaProjeto(idProjeto, dataEntrega);
