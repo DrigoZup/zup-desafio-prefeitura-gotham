@@ -95,12 +95,17 @@ public class FuncionarioService implements InterfaceFuncionarioService {
 		
 		Optional<Funcionario> funcionario = this.funcionarioRepository.findById(idFuncionario);
 
+		//FIXME: Jovem, você se esqueceu de considerar um fluxo grande aqui, que seria o de troca de secretaria:
+		// "Ao alterar um funcionário, caso haja uma alteração de secretaria deverá ser realizada a mesma verificação 
+		// do cadastro inicial (verificação do orçamento), além disso deverá haver uma alteração nos orçamentos das 
+		// duas secretarias para refletir a alocação de verba em uma e desalocação de verba em outra."
 		if (funcionario.isPresent() && funcionarioASerAtualizado.getSalario()>=funcionario.get().getSalario()) {
 			Funcionario funcionarioAtualizado = funcionario.get();
 			boolean verificaStatusConcursado = 	funcionarioAtualizado.getConcursado();
 			
 			BeanUtils.copyProperties(funcionarioASerAtualizado, funcionarioAtualizado);
 			
+			//TODO: E esse if ternário aqui jovem?
 			verificaStatusConcursado = verificaStatusConcursado == true ? true : funcionarioASerAtualizado.isConcursado();
 			funcionarioAtualizado.setConcursado(verificaStatusConcursado);
 

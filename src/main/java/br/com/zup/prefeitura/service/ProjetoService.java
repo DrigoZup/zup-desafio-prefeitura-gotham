@@ -35,6 +35,7 @@ public class ProjetoService implements InterfaceProjetoService {
 
 	public MensagemDTO cadastraProjeto(DadosManipulaveisProjetoDto projetoASerCadastrado) {
 		
+	    // TODO: Como será que podemos encurtar esse método?
 		String nomeProjeto = projetoASerCadastrado.getNome();
 		boolean projetoExiste = this.projetoRepository.existsByNome(nomeProjeto);
 		
@@ -85,6 +86,7 @@ public class ProjetoService implements InterfaceProjetoService {
 			this.projetoRepository.save(projetoAtualizado);
 			return new MensagemDTO(PROJETO_ALTERADO_COM_SUCESSO);
 		}
+		//TODO: Tente inverter a ordem pra usar o fail first.
 		return new MensagemDTO(PROJETO_INEXISTENTE);
 	}
 
@@ -105,6 +107,7 @@ public class ProjetoService implements InterfaceProjetoService {
 			this.projetoRepository.save(projetoParaFinalizar);
 			return new MensagemDTO(PROJETO_CONCLUIDO_COM_SUCESSO);
 		}
+		//TODO: Tente inverter a ordem pra usar o fail first.
 		return new MensagemDTO(PROJETO_INEXISTENTE);
 	}
 }

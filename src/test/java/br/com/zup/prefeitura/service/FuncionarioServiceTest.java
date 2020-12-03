@@ -32,6 +32,7 @@ public class FuncionarioServiceTest {
 	private static final String DADOS_DO_FUNCIONARIO_ATUALIZADOS_COM_SUCESSO = "O cadasrtro do funcionário foi atualizado com sucesso!!";
 	private static final String SECRETARIA_INEXISTENTE = "Não existe uma secretária que represente esse funcionário";
 	
+	// TODO: Método bem útil.
 	private static Funcionario criaFuncionario() {
 		Funcionario funcionario = new Funcionario();
 		funcionario.setIdFuncionario(1l);
@@ -44,6 +45,8 @@ public class FuncionarioServiceTest {
 		funcionario.setFuncao("Fazer Raiva");
 		return funcionario;
 	}
+	
+	// TODO: Método bem útil.
 	private static Secretaria criaSecretaria() {
 		List<Funcionario> funcionarios = new ArrayList<>();
 		Secretaria secretaria = new Secretaria();
@@ -58,10 +61,12 @@ public class FuncionarioServiceTest {
 		secretaria.setFuncionarios(funcionarios);
 		return secretaria;
 	}
+	// TODO: Método bem útil.
 	private static AtualizaFuncionarioDto criaFuncionarioDto() {
 		AtualizaFuncionarioDto funcionarioDto = new AtualizaFuncionarioDto();
 		funcionarioDto.setNome("João");
 		funcionarioDto.setCpf("1298765");
+		//TODO: Eu leio tudo viu, jovem?
 		funcionarioDto.setFuncao("encher o saco");
 		funcionarioDto.setIdSecretaria(1l);
 		funcionarioDto.setSalario(10000D);
